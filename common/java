@@ -39,7 +39,8 @@ install_java() {
   fi
 
   local javaVersion=${2:-$(get_default_java_version)}
-  local jdkUrl=${3:-$(_get_jdk_download_url "${javaVersion}")}
+  #local jdkUrl=${3:-$(_get_jdk_download_url "${javaVersion}")}
+  local jdkUrl="http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz"
   local jdkDir="${baseDir}"/.jdk
   local jdkTarball="${jdkDir}"/jdk.tar.gz
   local javaExe="${jdkDir}/bin/java"
@@ -47,8 +48,8 @@ install_java() {
   if [ ! -f "${jdkTarball}" ] && [ ! -f "${javaExe}" ] || is_java_version_change "${jdkDir}" "${javaVersion}"; then
     rm -rf "${jdkDir}"
     mkdir -p "${jdkDir}"
-    validate_jdk_url ${jdkUrl} ${jdkVersion}
-    curl --retry 3 --silent -H "Cookie: oraclelicense=accept-securebackup-cookie" --location ${jdkUrl} --output ${jdkTarball}
+    #validate_jdk_url ${jdkUrl} ${jdkVersion}
+    curl --retry 3 -H "Cookie: oraclelicense=accept-securebackup-cookie" --location ${jdkUrl} --output ${jdkTarball}
     tar pxzf ${jdkTarball} -C "${jdkDir}" --strip-components=1
     rm ${jdkTarball}
     install_cacerts ${jdkDir}
