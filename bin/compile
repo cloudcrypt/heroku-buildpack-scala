@@ -43,7 +43,7 @@ SYSPROPFILE="$BUILD_DIR/system.properties"
 
 #JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-"https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz"}
 JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-"https://github.com/cloudcrypt/heroku-buildpack-scala/releases/download/v76/jvm-common.tgz"}
-JVM_COMMON_BUILDPACK=$(get_property "$SYSPROPFILE" "heroku.jvm.buildpack" "$JVM_COMMON_BUILDPACK")
+#JVM_COMMON_BUILDPACK=$(get_property "$SYSPROPFILE" "heroku.jvm.buildpack" "$JVM_COMMON_BUILDPACK")
 KEEP_PLAY_FORK_RUN=$(get_property "$SYSPROPFILE" "sbt.keep-play-fork-run" "${KEEP_PLAY_FORK_RUN:-false}")
 SBT_PROJECT=$(get_property "$SYSPROPFILE" "sbt.project")
 SBT_PRE_TASKS=$(get_property "$SYSPROPFILE" "sbt.pre-tasks" "$SBT_PRE_TASKS")
