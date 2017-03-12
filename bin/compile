@@ -59,6 +59,10 @@ curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-c
 mkdir -p $CACHE_DIR
 
 # install JDK
+java_version() {
+  base=$1
+  echo $(${base}java -version 2>&1 | head -n 1 | cut -d '"' -f 2)
+}
 javaVersion=$(detect_java_version ${BUILD_DIR})
 status_pending "Installing ORACLE JDK ${javaVersion}"
 cache_dir=$CACHE_DIR
