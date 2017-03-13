@@ -39,7 +39,8 @@ install_java() {
 
   local javaVersion=${2:-$(get_default_java_version)}
   #local jdkUrl=${3:-$(_get_jdk_download_url "${javaVersion}")}
-  local jdkUrl="http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz"
+  echo "Installing jdk-8u121-linux-x64"
+  local jdkUrl="http://download.oracle.com/otn-pub/java/jdk/8u121-b13/jdk-8u121-linux-x64.tar.gz"
   local jdkDir="${baseDir}"/.jdk
   local jdkTarball="${jdkDir}"/jdk.tar.gz
   local javaExe="${jdkDir}/bin/java"
